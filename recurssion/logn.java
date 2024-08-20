@@ -14,6 +14,7 @@ public class logn {
 
         } else {
             int store1 = calclog(x, n / 2);
+
             int logn1 = x * store1 * calclog(x, n / 2);
             System.out.println(logn1);
             return logn1;
