@@ -1,22 +1,27 @@
 package oops;
 
-class Pen {
+class Student {
 
-    String type;
-    String Color;
+    String name;
+    int rollNumber;
 
-    public void write() {
-        System.out.println();
-        System.out.println("Writing");
+    public void printInfo() {
+        System.out.println(this.name);
+        System.out.println(this.rollNumber);
+    }
+
+    Student(String name, int rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+
     }
 }
 
 public class OOPs {
 
-    public static void main(String args[]) {
-        Pen pen1 = new Pen();
-        pen1.type = "ballpoint";
-        pen1.Color = "black";
-        pen1.write();
+    public static void main(String[] args) {
+        Student s1 = new Student("RAJA", 0);
+        s1.printInfo();
+
     }
 }
