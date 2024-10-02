@@ -16,5 +16,16 @@ public class Arraylist {
 
         System.out.println(list);
 
+        list.set(0, 5);
+
+        System.out.println(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i));
+        }
+
+        Collections.sort(list);
+        System.out.println("\nSorted list: " + list);
+
     }
 }
