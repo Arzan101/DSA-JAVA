@@ -1,8 +1,8 @@
 package linkedlist;
 
-import javax.xml.crypto.Data;
-
 public class LLNode {
+
+    Node head;
 
     class Node {
 
@@ -21,10 +21,33 @@ public class LLNode {
             head = newNode;
             return;
         }
+        Node currNode = head;
+        while (currNode.next != null) {
+            currNode = currNode.next;
+
+        }
+        currNode.next = newNode;
+
+    }
+
+    public void printList() {
+        if (head == null) {
+            System.out.println("list is empty");
+        }
+        Node currNode = head;
+        while (currNode.next != null) {
+            System.out.println();
+            System.out.println(currNode.data + " ");
+            currNode = currNode.next;
+
+        }
+        System.out.println("Null");
     }
 
     public static void main(String[] args) {
         LLNode list = new LLNode();
+        list.addFirst("a");
+        list.addFirst("b");
 
     }
 }
