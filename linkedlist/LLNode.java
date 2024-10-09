@@ -15,6 +15,12 @@ public class LLNode {  // Defines the outer class for the linked list
         }
     }
 
+    public void addFirst(String data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
     public void addLast(String data) {  // Adds a new node to the end of the list
         Node newNode = new Node(data);  // Creates a new node with the given data
         if (head == null) {  // If the list is empty (head is null)
@@ -28,25 +34,57 @@ public class LLNode {  // Defines the outer class for the linked list
         currNode.next = newNode;  // Add the new node at the end of the list
     }
 
+    public void deleteFirst() {
+        if (head == null) {
+            System.out.println("Empty");
+            return;
+
+        }
+        head = head.next;
+    }
+
+    public void deleteLast() {
+        if (head == null) {
+            System.out.println("Empty");
+            return;
+        }
+        Node secondLast = head;
+        Node last = head.next;
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        while (last.next != null) {
+            last = last.next;
+            secondLast = secondLast.next;
+        }
+        secondLast.next = null;  // Remove the last node from the list
+
+    }
+
     public void printList() {  // Method to print the entire linked list
         if (head == null) {  // If the list is empty (head is null)
-            System.out.println("list is empty");  // Print that the list is empty
+            System.out.print("list is empty");  // Print that the list is empty
             return;  // Exit the method
         }
         Node currNode = head;  // Start traversing from the head node
         while (currNode != null) {  // Loop through the nodes until currNode is null
-            System.out.println();  // Print an empty line for formatting
-            System.out.println(currNode.data + " ");  // Print the data of the current node
+            System.out.print(currNode.data + " ->");  // Print the data of the current node
             currNode = currNode.next;  // Move to the next node
         }
-        System.out.println("Null");  // After the last node, print "Null" to indicate end of list
+        System.out.print("Null");  // After the last node, print "Null" to indicate end of list
     }
 
     public static void main(String[] args) {  // Main method to run the program
         LLNode list = new LLNode();  // Create a new linked list object
         list.addLast("a");  // Add "a" to the end of the list
         list.addLast("b");  // Add "b" to the end of the list
+        list.addFirst("this is list"); // Add "this" to the
         list.printList();  // Print the list, which now contains "a" and "b"
+
+        System.out.println();
+        list.deleteFirst();
+        list.printList(); // Print the list after deleting the first node
     }
 }
 
